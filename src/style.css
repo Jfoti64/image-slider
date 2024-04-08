@@ -1,4 +1,10 @@
+body {
+    height: 100vh;
+}
+
 .outer-container {
+    height: 100%;
+    width: 100%;
     display: grid;
     place-content: center;
 }
@@ -11,7 +17,7 @@
 .carousel-slides {
     display: flex;
     width: 1500px;
-    place-self: center;
+    position: relative;
 }
 
 .slide img {
