@@ -7,3 +7,4 @@ import { nextSlide } from "./changeSlide";
 document.getElementById("slide1").src = image1;
 document.getElementById("slide2").src = image2;
 document.getElementById("slide3").src = image3;
+
