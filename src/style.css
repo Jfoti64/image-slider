@@ -1,0 +1,22 @@
+.outer-container {
+    display: grid;
+    place-content: center;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 500px;
+}
+
+.carousel-slides {
+    display: flex;
+    width: 1500px;
+    place-self: center;
+}
+
+.slide img {
+    width: 100%;
+    height: auto; /* maintain aspect ratio, or use a fixed height */
+    object-fit: cover; /* or 'contain' to fit the entire image */
+  }
+  
