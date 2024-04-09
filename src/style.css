@@ -3,10 +3,12 @@ body {
 }
 
 .outer-container {
+    display: flex;
+    flex-direction: row;
     height: 100%;
     width: 100%;
-    display: grid;
-    place-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-container {
@@ -19,6 +21,11 @@ body {
     width: 1500px;
     position: relative;
 }
+
+#carouselSlides {
+    transition: right 0.5s ease-out;
+  }
+  
 
 .slide img {
     width: 100%;
