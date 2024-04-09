@@ -21,4 +21,4 @@ function initializeSlides() {
   updateRadioBtns();
 }
 
-export { initializeSlides };
+export default initializeSlides;

@@ -38,7 +38,7 @@ function previousSlide() {
 
 (function populatePositions() {
   let firstPixelOfImage = 0;
-  for (let i = 0; i < numOfSlides; i++) {
+  for (let i = 0; i < numOfSlides; i += 1) {
     positions.push(firstPixelOfImage);
     firstPixelOfImage += 500;
   }
