@@ -1,4 +1,5 @@
 import { imageDetails } from "./images";
+import { updateRadioBtns } from "./currentSlide";
 
 function initializeSlides() {
   // Assuming 'carouselSlides' is the container where you want to insert the slides
@@ -17,6 +18,7 @@ function initializeSlides() {
     imgElement.alt = img.title; // It's good practice to set an alt attribute
     imgDiv.appendChild(imgElement);
   });
+  updateRadioBtns();
 }
 
 export { initializeSlides };

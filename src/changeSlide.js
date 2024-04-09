@@ -1,40 +1,47 @@
 import { getCurrentSlide, setCurrentSlide } from "./currentSlide";
 import { imageDetails } from "./images";
 
-let pixelsRight = 0;
+const positions = [];
+
 const numOfSlides = imageDetails.length;
+
+function changeToPosition(position) {
+  const newPosition = positions[position];
+  const carouselSlides = document.getElementById("carouselSlides");
+
+  setCurrentSlide(position);
+
+  carouselSlides.style.right = `${newPosition}px`;
+}
 
 function nextSlide() {
   const { currentSlide } = getCurrentSlide();
-  const carouselSlides = document.getElementById("carouselSlides");
 
   if (currentSlide >= numOfSlides - 1) {
-    pixelsRight = 0;
-    setCurrentSlide(0);
+    changeToPosition(0);
   } else {
-    pixelsRight += 500;
-    setCurrentSlide(currentSlide + 1);
+    changeToPosition(currentSlide + 1);
   }
-
-  // Directly applying the pixelsRight value with "px" without converting to a string first
-  carouselSlides.style.right = `${pixelsRight}px`;
 }
 
 function previousSlide() {
   const { currentSlide } = getCurrentSlide();
-  const carouselSlides = document.getElementById("carouselSlides");
 
   if (currentSlide === 0) {
-    console.log("gg");
-    pixelsRight = 500 * (numOfSlides - 1);
     setCurrentSlide(numOfSlides - 1);
+    changeToPosition(numOfSlides - 1);
   } else {
-    pixelsRight -= 500;
     setCurrentSlide(currentSlide - 1);
+    changeToPosition(currentSlide - 1)
   }
-
-  // Directly applying the pixelsRight value with "px" without converting to a string first
-  carouselSlides.style.right = `${pixelsRight}px`;
 }
 
-export { nextSlide, previousSlide };
+(function populatePositions() {
+  let firstPixelOfImage = 0;
+  for (let i = 0; i < numOfSlides; i++) {
+    positions.push(firstPixelOfImage);
+    firstPixelOfImage += 500;
+  }
+})();
+
+export { nextSlide, previousSlide, changeToPosition };
