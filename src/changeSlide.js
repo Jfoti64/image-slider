@@ -1,19 +1,21 @@
 import { getCurrentSlide, setCurrentSlide } from "./currentSlide";
 
-function nextSlide() {
-  const positions = ["0px", "500px", "1000px"];
+let pixelsRight = 0;
 
+function nextSlide() {
   const { currentSlide } = getCurrentSlide();
   const carouselSlides = document.getElementById("carouselSlides");
 
-  if (currentSlide >= positions.length - 1) {
+  if (currentSlide >= 2) {
+    pixelsRight = 0;
     setCurrentSlide(0);
-    // eslint-disable-next-line prefer-destructuring
-    carouselSlides.style.right = positions[0];
   } else {
-    carouselSlides.style.right = positions[currentSlide + 1];
+    pixelsRight += 500;
     setCurrentSlide(currentSlide + 1);
   }
+  
+  // Directly applying the pixelsRight value with "px" without converting to a string first
+  carouselSlides.style.right = `${pixelsRight}px`;
 }
 
 export { nextSlide };
